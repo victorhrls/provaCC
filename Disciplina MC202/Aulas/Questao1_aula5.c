@@ -13,6 +13,13 @@ typedef struct _turma{
 
 }turma;
 
+void imprime(turma *aluno, int size){
+    int i;
+    for(i=0;i<size;i++){
+        printf("%lf",aluno[i].notas);
+    }
+    printf("A maior nota foi: %lf",aluno->maior_nota);
+}
 
 int main(){
     turma *p;
@@ -29,16 +36,16 @@ int main(){
         exit(1);
     // malloc para alocar dinamicamente a memoria de 1 turma com n alunos!
     for (i=0;i<n;i++)
-        scanf("%lf",&p[i].notas);
+        scanf("%lf",&p[i]->notas);
 
         if (p[i].notas > nota_alta)
-            nota_alta =p[i].notas;
-            p[i].maior_nota = nota_alta;
+            nota_alta =p[i]->notas;
+            p[i]->maior_nota = nota_alta;
             pos = i;
     //for para receber as notas de cada alunos e ver qual a maior nota 
 
     
-    printf("O numero de alunos é %d e a maior nota é %lf",n,p[pos].maior_nota);
+    printf("O numero de alunos é %d e a maior nota é %lf",n,p[pos]->maior_nota);
 
     free (p);
 
